@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import OrderItem from '../../components/OrderItem/OrderItem';
 
 const HomePage = (props) => {
+
     const {menu} = props;
 
     return(
@@ -20,7 +21,8 @@ const HomePage = (props) => {
 
     const mapStateToProps = state => {
         return {
-            menu: state.pizza.pizza
+            menu: state.pizza.pizza,
+            cart:state.cart
         };
     }
     

@@ -1,4 +1,7 @@
 import React from 'react';
+import {connect} from 'react-redux';
+
+import { addItem } from '../../redux/cart/cart.actions'
 
 
 const OrderItem = (props) => {
@@ -13,6 +16,7 @@ const OrderItem = (props) => {
                 <button className="absolute h-12 w-full bg-black text-white 
                         text-center text-base uppercase font-medium inset-x-0 top-0 my-48 border-solid border border-black 
                         hover:bg-white hover:text-black hover:border-solid hover:border hidden group-hover:block text-center opacity-75"
+                        onClick= {() => props.addItem(props.item)}
                         >
                         ADD TO CART
                     </button>
@@ -27,4 +31,10 @@ const OrderItem = (props) => {
             </div>
     )};
 
-export default OrderItem;
+    const mapDispatchToProps = dispatch => {
+        return{
+            addItem: item => dispatch(addItem(item))
+        }
+    }
+
+export default connect(null, mapDispatchToProps)(OrderItem);
