@@ -25,7 +25,7 @@ const OrderItem = (props) => {
                     {
                        props.item.ingredients.map(ingr =><div className="capitalize text-xs text-right" key={ingr}>{ingr}</div> ) 
                     }
-                    <div className="absolute mt-6 font-semibold bottom-0">{props.item.price} EUR</div>
+                    <div className="absolute mt-6 font-semibold bottom-0 mb-2">{props.item.price} EUR</div>
 
                 </div>
             </div>

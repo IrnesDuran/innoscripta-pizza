@@ -4,11 +4,13 @@ import { withRouter } from 'react-router-dom';
 
 const CustomButton =(props) => {
 
-    const {children,activeLink,...otherProps} = props;
+    const {children,...otherProps} = props;
     return(
-        <button className={`h-12 w-40 bg-black text-white 
+        <button 
+        onClick={props.onPlacedOrder}
+        className="h-12 w-40 bg-black text-white 
         text-center text-base uppercase font-medium px-5 mx-1 border-solid border border-black 
-        hover:bg-white hover:text-black hover:border-solid hover:border`}
+        hover:bg-white hover:text-black hover:border-solid hover:border"
         {...otherProps} 
         >
             {children}
