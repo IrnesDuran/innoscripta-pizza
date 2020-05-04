@@ -9,14 +9,37 @@ import { clearCart } from '../../redux/cart/cart.actions';
 import BuyItem from '../../components/BuyItem/BuyItem';
 import ContactDetails from '../../components/ContactDetails/ContactDetails';
 
+import {populateDB} from '../../backendFunctions';
+
 
 const CheckoutPage = (props) => {
-    console.log(props)
-
      const [isProceeding, setIsProceeding] = useState(false);
 
-     const delayRedirect = ( ) => {
+    //Conditional component for rendering after purchase 
+    const AfterPurchase = () => (<div className="text-6xl text-center"><h1>Thank you for your order! It will be on your address soon!</h1></div>);
+ 
+    //delivery price to be included in cart is not empty
+    const deliveryPrice = props.cartItems.length ? 6 : 0;
+
+    //total price of purchase
+    const total = props.cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price,deliveryPrice);
+
+
+    //stringified order name and quantity to be pushed to DB
+    const orderString = JSON.stringify(props.cartItems.map(item=> {return item.title+" x "+item.quantity}))
+    console.log(orderString);
+    
+
+    const delayRedirect = ( ) => {
         setIsProceeding(true);
+        populateDB(
+            orderString,
+            total,
+            'Irnes',
+            'DB78',
+            'jdjdjd',
+            123456789
+        );
         setTimeout(() => {
             setIsProceeding(false);
             props.history.push("/");
@@ -24,16 +47,9 @@ const CheckoutPage = (props) => {
         }, 3000);
      };
 
-
-    const Ver1 = () => (<div className="text-6xl text-center"><h1>Thank you for your order! It will be on your address soon!</h1></div>);
- 
-    const deliveryPrice = props.cartItems.length ? 6 : 0;
-
-    const total = props.cartItems.reduce((accumalatedQuantity, cartItem) => accumalatedQuantity + cartItem.quantity * cartItem.price,deliveryPrice);
-    
     
     return( <div>
-  { isProceeding ? <Ver1/> :
+  { isProceeding ? <AfterPurchase/> :
       
     
     ( <div className='checkout-page'>
