@@ -33,7 +33,6 @@ const CheckoutPage = (props) => {
 
     const delayRedirect = ( ) => {
         setIsProceeding(true);
-        console.log(props.contact);
         populateDB(
             orderString,
             total,
