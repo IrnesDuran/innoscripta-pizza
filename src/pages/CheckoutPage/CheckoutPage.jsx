@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import './CheckoutPage.styles.scss';
 
 import { clearCart } from '../../redux/cart/cart.actions';
+import { clearContacts } from '../../redux/contact-details/contact-details.actions';
 
 import BuyItem from '../../components/BuyItem/BuyItem';
 import ContactDetails from '../../components/ContactDetails/ContactDetails';
@@ -13,6 +14,7 @@ import {populateDB} from '../../backendFunctions';
 
 
 const CheckoutPage = (props) => {
+
      const [isProceeding, setIsProceeding] = useState(false);
 
     //Conditional component for rendering after purchase 
@@ -27,23 +29,24 @@ const CheckoutPage = (props) => {
 
     //stringified order name and quantity to be pushed to DB
     const orderString = JSON.stringify(props.cartItems.map(item=> {return item.title+" x "+item.quantity}))
-    console.log(orderString);
     
 
     const delayRedirect = ( ) => {
         setIsProceeding(true);
+        console.log(props.contact);
         populateDB(
             orderString,
             total,
-            'Irnes',
-            'DB78',
-            'jdjdjd',
-            123456789
+            props.contact.name,
+            props.contact.address,
+            props.contact.email,
+            props.contact.phone
         );
         setTimeout(() => {
             setIsProceeding(false);
             props.history.push("/");
             props.clearCart();
+            props.clearContacts();
         }, 3000);
      };
 
@@ -79,15 +82,18 @@ const CheckoutPage = (props) => {
 
 const mapStateToProps=  state => {
     return {
-        cartItems: state.cart.cartItems
+        cartItems: state.cart.cartItems,
+        contact: state.contact
     }
 };
 
 const mapDispatchToProps = dispatch => {
     return{
-        clearCart: () => dispatch(clearCart())
+        clearCart: () => dispatch(clearCart()),
+        clearContacts: () => dispatch(clearContacts())
     }
 };
+
 
 
 
