@@ -1,3 +1,7 @@
+This project has been hosted on:
+
+https://pizza-innoscripta-front.herokuapp.com/
+
 InnoScripta frontend assignment 
 
 1. Task description
@@ -18,3 +22,6 @@ quantity and calucation of a total price in Euros and US$ also adding delivery c
 
 
 • Deployment of the application: Heroku
+• This is an endpoint for checking remote "https://remotemysql.com/" database state
+
+https://innoscripta-pizza-backend.herokuapp.com/api/orders

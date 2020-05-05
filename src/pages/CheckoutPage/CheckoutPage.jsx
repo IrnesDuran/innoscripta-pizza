@@ -18,7 +18,7 @@ const CheckoutPage = (props) => {
      const [isProceeding, setIsProceeding] = useState(false);
 
     //Conditional component for rendering after purchase 
-    const AfterPurchase = () => (<div className="text-6xl text-center"><h1>Thank you for your order! It will be on your address soon!</h1></div>);
+    const AfterPurchase = () => (<div className="text-3xl text-center w-4/5 mx-auto my-12"><h1>Thank you for your order! It will be on your address soon!</h1></div>);
  
     //delivery price to be included in cart is not empty
     const deliveryPrice = props.cartItems.length ? 6 : 0;
