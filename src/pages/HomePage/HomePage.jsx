@@ -9,11 +9,9 @@ const HomePage = (props) => {
 
     return(
       
-        <div className="flex flex-wrap items-center justify-evenly h-64 w-4/5 m-auto">
+        <div className="flex flex-wrap items-center justify-evenly h-64 mx-12 ">
             {menu.map(item => 
-                (<div key= {item.id}>
-                    <OrderItem className="w-32 h-32 flex-1" item={item}/>
-                </div>))}
+                (<div className="box-border m-1/2 md:w-1/4 px-4"><OrderItem key= {item.id} item={item}/></div>))}
 
         </div>
     
