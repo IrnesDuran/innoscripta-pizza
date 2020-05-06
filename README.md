@@ -25,3 +25,7 @@ quantity and calucation of a total price in Euros and US$ also adding delivery c
 • This is an endpoint for checking remote "https://remotemysql.com/" database state
 
 https://innoscripta-pizza-backend.herokuapp.com/api/orders
+
+
+Repo can easily be cloned or pulled and "npm install" will implement all dependencies and dev dependencies needed for project to be runned locally. As usual, "npm start" runs projectt on http://localhost.
+Frontend testing perforemd by few snapshots tests performed with Jest and Enzyme... "npm test" will run these few test.

@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing CartDropdown should test CartDropdown snapshot 1`] = `ShallowWrapper {}`;

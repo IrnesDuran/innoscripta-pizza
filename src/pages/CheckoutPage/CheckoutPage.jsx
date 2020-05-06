@@ -13,7 +13,7 @@ import ContactDetails from '../../components/ContactDetails/ContactDetails';
 import {populateDB} from '../../backendFunctions';
 
 
-const CheckoutPage = (props) => {
+export const CheckoutPage = (props) => {
 
      const [isProceeding, setIsProceeding] = useState(false);
 

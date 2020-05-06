@@ -9,7 +9,7 @@ import { toggleCartHidden } from '../../redux/cart/cart.actions'
 
 
 
-const CartIcon =(props) => (
+export const CartIcon =(props) => (
     <div className='cart-icon' onClick={props.toggleCartHidden}>
         <ShoppingIcon className='shopping-icon' />
         <span className='item-count'>{props.itemCount}</span>

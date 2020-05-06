@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import CartIcon from '../CartIcon/CartIcon';
 import CartDropdown from '../CartDropdown/CartDropdown';
 
-const Header = (props) => {
+export const Header = (props) => {
     return(
     <div className="flex justify-between items-center px-6 border-b border-black">
         <a href="/">InnoScripta Pizza</a>

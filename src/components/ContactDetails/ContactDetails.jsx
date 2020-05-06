@@ -13,7 +13,7 @@ const ContactDetails = (props) => {
         <div className="flex flex-col flex-1 justify-center text-center items-center mt-12">
             <h1 className="font-bold tracking-widest" >Thank you for your trust and for your order!</h1>
             <p className="text-lg">Please enter contact details for successful delivery!</p>
-            <form className="text-center w-full mb-16" autocomplete="chrome-off">
+            <form className="text-center w-full mb-16">
                 <FormInput  name="name" 
                             type='text'
                             value={props.contact.name}

@@ -10,7 +10,11 @@ import  { toggleCartHidden } from '../../redux/cart/cart.actions';
 
 
 
-const CartDropdown =({cartItems, history, dispatch}) => (
+export const CartDropdown =(props) => {
+    
+    const {cartItems, history, dispatch} = props;
+
+    return(
     <div className='cart-dropdown'>
         <div className='cart-items'>
             {
@@ -34,7 +38,7 @@ const CartDropdown =({cartItems, history, dispatch}) => (
     </div>
 
 
-);
+)};
 const mapStateToProps = state => ({
     cartItems: state.cart.cartItems
   });
